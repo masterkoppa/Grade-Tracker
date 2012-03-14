@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Describes how the list items will look like -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal" 
+    android:background="@drawable/roundedcorner" 
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp"
+    android:paddingRight="10dp">
+    
+	<TextView
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/class_name"
+	    android:layout_width="0dp"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="left"
+	    android:layout_weight=".90"
+	    android:ellipsize="end"
+	    android:padding="15dp"
+	    android:singleLine="true"
+	    android:textSize="25sp" 
+	    android:focusable="false">
+		
+	</TextView>
+
+	<Button
+	    android:id="@+id/grade_display"
+	    android:layout_width="70dp"
+	    android:layout_height="70dp"
+	    android:background="@drawable/button_background"
+	    android:focusable="false"
+	    android:textSize="25sp"/>
+
+</LinearLayout>
