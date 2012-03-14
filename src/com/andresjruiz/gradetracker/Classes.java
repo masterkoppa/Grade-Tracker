@@ -24,6 +24,7 @@ public class Classes implements Serializable{
 	protected Classes(String Name, int Grade){
 		this.Name = Name;
 		this.Grade = Grade;
+		GradeWeights = new HashMap<String, Integer>();
 	}
 	
 	protected Classes(String Name, int Grade, Map<String, Integer> GradeWeights){
