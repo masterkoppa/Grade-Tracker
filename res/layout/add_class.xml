@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    
+    <LinearLayout
+           android:id="@+id/border_buttons"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal" 
+           android:layout_alignParentBottom="true">
+           
+		<RelativeLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent">
+		    
+		    <Button
+				android:id="@+id/next_button"
+				android:layout_width="150dp"
+				android:layout_height="wrap_content"
+				android:text="@string/next"
+				android:layout_alignParentRight="true"
+				android:textSize="20sp" />
+		    
+		    <Button
+		        android:id="@+id/cancel_button"
+		        android:layout_width="150dp"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:text="@string/cancel"
+		        android:textSize="20sp" />
+
+		</RelativeLayout>
+    </LinearLayout>
+
+    <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/border_buttons">
+    
+        <LinearLayout
+           android:id="@+id/linearLayout1"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical" >
+           
+           <TextView
+           android:id="@+id/textView1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/addClass"
+           android:textAppearance="?android:attr/textAppearanceLarge"
+           android:textSize="25sp" />
+           <TextView
+	        android:id="@+id/textView2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="10dp"
+	        android:text="@string/className"
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+	
+	    <EditText
+	        android:id="@+id/class_name_input"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="20dp"
+	        android:hint="@string/className"
+	        android:inputType="textAutoCorrect"
+	        android:singleLine="true" >
+	    </EditText>
+	
+	    <TextView
+	        android:id="@+id/textView3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="30dp"
+	        android:text="@string/prof_name"
+	        android:textAppearance="?android:attr/textAppearanceLarge" />
+	
+	    <EditText
+	        android:id="@+id/prof_name_input"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:hint="@string/prof_name"
+	        android:inputType="textPersonName"
+	        android:singleLine="true" />
+		</LinearLayout>
+	</ScrollView>
+	    
+			 
+			
+
+        
+        
+</RelativeLayout>
+	
+	
+	
