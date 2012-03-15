@@ -21,7 +21,6 @@
 	    android:singleLine="true"
 	    android:textSize="25sp" 
 	    android:focusable="false">
-		
 	</TextView>
 
 	<Button

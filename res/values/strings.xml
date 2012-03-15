@@ -10,5 +10,7 @@
     <string name="prof_name">Professors Name</string>
     <string name="next">Next -&gt;</string>
     <string name="cancel">Cancel</string>
+    <string name="back_button">Back</string>
+    <string name="ClassCategoriesTitle">Grading Categories for </string>
 
 </resources>

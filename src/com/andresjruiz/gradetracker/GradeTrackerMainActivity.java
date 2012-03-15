@@ -87,7 +87,6 @@ public class GradeTrackerMainActivity extends ListActivity {
 				
 				startActivity(showClassInfo);
 			}
-        	
         });
         
         Button button = (Button) findViewById(R.id.addClassButton);
