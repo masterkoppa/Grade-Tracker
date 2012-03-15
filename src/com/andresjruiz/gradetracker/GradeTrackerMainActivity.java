@@ -15,6 +15,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -27,6 +28,8 @@ public class GradeTrackerMainActivity extends ListActivity {
 	private String[] classNames;
 	private String[] classGrades;
 	private StorageInterface storage;
+	
+	private static final int ADD_NEW_CLASS_REQUEST = 5;
 	
     /** Called when the activity is first created. */
     @Override
@@ -86,6 +89,20 @@ public class GradeTrackerMainActivity extends ListActivity {
 			}
         	
         });
+        
+        Button button = (Button) findViewById(R.id.addClassButton);
+        
+        button.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent addClass = new Intent();
+				addClass.setClassName("com.andresjruiz.gradetracker", "com.andresjruiz.gradetracker.AddClass_Step1");
+				addClass.putExtra("StorageInterface", storage);
+				
+				startActivity(addClass);
+			}
+		});
     }
     
     @Override
@@ -94,6 +111,12 @@ public class GradeTrackerMainActivity extends ListActivity {
     	
     	//Close and clean up any storage things
     	storage.close();
+    }
+    
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+    	if(requestCode == ADD_NEW_CLASS_REQUEST){
+    		
+    	}
     }
 
 }

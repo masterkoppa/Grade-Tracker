@@ -5,5 +5,10 @@
     <string name="app_name">Grade Tracker</string>
     <string name="AddButton">+</string>
     <string name="Title">Grade Tracker</string>
+    <string name="addClass">Add New Class</string>
+    <string name="className">Class Name</string>
+    <string name="prof_name">Professors Name</string>
+    <string name="next">Next -&gt;</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

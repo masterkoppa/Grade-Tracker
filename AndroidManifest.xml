@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name="ClassActivity"></activity>
+        <activity android:name="AddClass_Step1"></activity>
     </application>
 
 </manifest>

@@ -51,7 +51,6 @@ public class ClassActivity extends ListActivity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 			        int position, long id) {
-				Intent showClassInfo = new Intent();
 				Toast.makeText(getApplicationContext(), ((TextView) view.findViewById(R.id.class_name)).getText(),
 				          Toast.LENGTH_SHORT).show();
 
