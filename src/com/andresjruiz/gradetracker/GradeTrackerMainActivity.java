@@ -109,7 +109,7 @@ public class GradeTrackerMainActivity extends ListActivity {
     	super.onStop();
     	
     	//Close and clean up any storage things
-    	storage.close();
+    	//storage.close();
     }
     
     public void onActivityResult(int requestCode, int resultCode, Intent data){

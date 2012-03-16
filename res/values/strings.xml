@@ -12,5 +12,9 @@
     <string name="cancel">Cancel</string>
     <string name="back_button">Back</string>
     <string name="ClassCategoriesTitle">Grading Categories for </string>
+    <string name="new_category">Category Name</string>
+    <string name="default_percent">20%</string>
+    <string name="confirm">Confirm</string>
+    <string name="category_label">Category</string>
 
 </resources>

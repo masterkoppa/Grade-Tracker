@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -18,6 +19,9 @@ public class AddClass_Step1 extends Activity {
     public void onCreate(Bundle savedInstanceState) {
     	super.onCreate(savedInstanceState);
     	
+    	//Remove title
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        
     	final Context This = this;
     	
         setContentView(R.layout.add_class);
