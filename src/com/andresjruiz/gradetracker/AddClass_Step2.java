@@ -2,6 +2,7 @@ package com.andresjruiz.gradetracker;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 
 import android.app.Dialog;
@@ -14,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.SeekBar.OnSeekBarChangeListener;
@@ -134,12 +136,15 @@ public class AddClass_Step2 extends ListActivity {
         }
     }
     
-    private void showGradeSelector(String Category, int startPercent, int catID){
+    private void showGradeSelector(String Category, int startPercent, final int catID){
     	final Dialog dialog = new Dialog(this);
     	
     	dialog.setContentView(R.layout.custom_seek_dialog);
     	
     	dialog.setTitle("Select Grade Weight in % of total grade");
+    	
+    	TextView name = ((TextView)dialog.findViewById(R.id.category_edit));
+    	name.setText(Category);
     	
     	//Deal with the seek bar
     	SeekBar seek = (SeekBar)dialog.findViewById(R.id.gradeWeightBar);
@@ -170,6 +175,12 @@ public class AddClass_Step2 extends ListActivity {
 
 			@Override
 			public void onClick(View view) {
+				String newName = ((EditText)(dialog.findViewById(R.id.category_edit))).getText().toString();
+				String weightString = (String) ((TextView)(dialog.findViewById(R.id.grade_weight_display))).getText();
+				weightString = weightString.substring(0, weightString.length()-1);
+				int newWeight = Integer.parseInt(weightString);
+				changeItem(catID, newName, newWeight);
+				
 				dialog.cancel();
 			}
     		
@@ -231,8 +242,6 @@ public class AddClass_Step2 extends ListActivity {
     		return;
     	}
     	
-    	
-    	
     	int id = categories.size() + 1;
 		
 		if(id >= 1){
@@ -267,6 +276,59 @@ public class AddClass_Step2 extends ListActivity {
 		}
 		
     	adapter.changeCursor(data);
+		adapter.notifyDataSetChanged();
+    }
+    
+    /**
+     * 
+     * @param id ID in the order the item appears in the list. Starting at index 0
+     */
+    private void changeItem(int id, String newName, int weight){
+    	String item_key = "";
+    	
+    	int count = 0;
+    	for(String i : categories.keySet()){
+    		if(count == id){
+    			item_key = i;
+    			break;
+    		}
+    		count++;
+    	}
+    	
+    	categories.remove(item_key);
+    	
+    	categories.put(newName, weight);
+    	
+    	
+    	//Reweight the whole thing here
+    	/*
+    	final Set<String> cats = categories.keySet();
+    	
+    	int newTotal = 100-weight;
+    	int size = cats.size()-1;
+    	
+    	for(String cat : cats){
+    		if(!cat.equalsIgnoreCase(newName)){
+    			categories.put(cat, newTotal/size);
+    		}
+    	}
+    	*/
+    	
+    	
+    	
+    	//Refill the matrix cursor
+    	data.close();
+		
+		data = new MatrixCursor(listMappings);
+		
+		int i = 0;
+		for(String Cat : categories.keySet()){
+			int percent = categories.get(Cat);
+			data.addRow(new String[]{Integer.toString(i), Cat, percent + "%"});
+			i++;
+		}
+		
+		adapter.changeCursor(data);
 		adapter.notifyDataSetChanged();
     }
     

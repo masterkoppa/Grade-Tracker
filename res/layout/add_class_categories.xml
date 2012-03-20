@@ -35,7 +35,6 @@
         android:layout_height="46dp"
         android:layout_weight="0.98"
         android:clickable="false"
-        android:descendantFocusability="afterDescendants"
         android:focusable="false"
         android:stackFromBottom="false" >
 
